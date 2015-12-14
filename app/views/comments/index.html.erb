@@ -1,0 +1,7 @@
+<h1>/comments - This should show all of the comments</h1>
+
+<% @comments.each do |comment| %>
+  <p>
+    <%= link_to( "#{ comment.content } #{ comment.user_id }", comment_path( comment ) ) %>
+  </p>
+<% end %>
