@@ -1,0 +1,7 @@
+<h1>/posts - This should show all of the posts</h1>
+
+<% @posts.each do |post| %>
+  <p>
+    <%= link_to( "#{ post.content } #{ post.user_id }", post_path( post ) ) %>
+  </p>
+<% end %>
