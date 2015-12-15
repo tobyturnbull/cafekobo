@@ -5,6 +5,7 @@
 <p><b>Email:</b> <%= @user.email %></p>
 
 <p><b>Created At:</b> <%= @user.created_at.strftime( '%A, %B %e, %Y' ) %></p>
+<%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %>
 
 <%= form_for Post.new do |f| %>
   <%= f.text_area :content %>
@@ -12,13 +13,19 @@
 <% end %>
 
 <% @user.posts.reverse.each do |p| %>
+
   <p><%= p.user.name %></p>
   <p><%= p.content %></p>
-  <p><%= p.created_at %></p>
+  <p><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
   <ul>
-  <% p.comments.reverse.each do |c| %>
+  <% p.comments.reverse_each do |c| %>
   <li>
+    <% if c.user %>
+      <%= c.user.name %>
+    <% end %>
     <%= c.content %>
+    <%= c.created_at %>
+
   </li>
   <% end %>
   </ul>

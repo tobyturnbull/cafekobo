@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     comment = Comment.create comment_params
     post = Post.find params[:post_id]
     post.comments << comment
+    @current_user.comments << comment
     redirect_to user_path(post.user)
   end
 
