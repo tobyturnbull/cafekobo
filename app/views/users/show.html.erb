@@ -1,7 +1,33 @@
 <h1>/users/:id - This should show all of the details of a particular user</h1>
 
-<p><b>Full name:</b> <%= "#{ @user.first_name } #{ @user.last_name }" %></p>
+<p><b>Full name:</b> <%= "#{ @user.name }" %></p>
 
 <p><b>Email:</b> <%= @user.email %></p>
 
 <p><b>Created At:</b> <%= @user.created_at.strftime( '%A, %B %e, %Y' ) %></p>
+
+<%= form_for Post.new do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
+
+<% @user.posts.reverse.each do |p| %>
+  <p><%= p.user.name %></p>
+  <p><%= p.content %></p>
+  <p><%= p.created_at %></p>
+  <ul>
+  <% p.comments.reverse.each do |c| %>
+  <li>
+    <%= c.content %>
+  </li>
+  <% end %>
+  </ul>
+  <p>
+    <%= form_for [p, Comment.new] do |f| %>
+      <%= f.label :content, 'Comment' %>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </p>
+  <hr>
+<% end %>

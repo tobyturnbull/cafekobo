@@ -32,8 +32,7 @@ ActiveRecord::Schema.define(version: 20151214050307) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text     "first_name"
-    t.text     "last_name"
+    t.text     "name"
     t.text     "email"
     t.text     "password_digest"
     t.datetime "created_at"
