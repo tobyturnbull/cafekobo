@@ -4,6 +4,8 @@
 
 <p><b>Email:</b> <%= @user.email %></p>
 
+<p><b>Picture:</b> <%= image_tag(@user.picture) %></p>
+
 <p><b>Created At:</b> <%= @user.created_at.strftime( '%A, %B %e, %Y' ) %></p>
 <%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %>
 

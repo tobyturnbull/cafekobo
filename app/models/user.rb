@@ -8,6 +8,7 @@
 #  password_digest :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  
 #
 
 class User < ActiveRecord::Base

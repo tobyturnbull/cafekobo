@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dln4aevui
+  api_key: '881714896934865'
+  api_secret: P5BNXwX6QL3rq_uWMgGcSDzWgls
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dln4aevui
+  api_key: '881714896934865'
+  api_secret: P5BNXwX6QL3rq_uWMgGcSDzWgls
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dln4aevui
+  api_key: '881714896934865'
+  api_secret: P5BNXwX6QL3rq_uWMgGcSDzWgls
+  enhance_image_tag: true
+  static_image_support: false
