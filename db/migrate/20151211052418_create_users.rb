@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :name
       t.text :email
       t.text :password_digest
+      t.text :picture
 
       t.timestamps # created_at and updated_at
     end
