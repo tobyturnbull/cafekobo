@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'rails-timeago', '~> 2.0'
+gem 'paperclip', '~> 4.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

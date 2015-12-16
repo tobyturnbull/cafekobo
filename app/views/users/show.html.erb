@@ -24,7 +24,7 @@
       <%= c.user.name %>
     <% end %>
     <%= c.content %>
-    <%= c.created_at %>
+    <%= timeago_tag c.created_at, :nojs => true, :limit => 1.days.ago %> ago
 
   </li>
   <% end %>
