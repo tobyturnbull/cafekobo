@@ -22,19 +22,18 @@ class UsersController < ApplicationController
       redirect_to(root_path)
     else
       render :new
+
     end
   end
 
-  def edit
-  end
-
   def show
-    # Find the particular user from params[:id]
     @user = User.find( params[:id] )
   end
+
 
   private
   def user_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 end
+
