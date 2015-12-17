@@ -1,22 +1,24 @@
 <h1><%= "#{ @user.name }" "'s Page" %></h1>
 
-<p><b>Name:</b> <%= "#{ @user.name }" %></p>
+<div class = "userinfo">
+<p class="txt"><b>Name:</b> <%= "#{ @user.name }" %></p>
 
-<p><%= image_tag(@user.picture, :class => "img-rounded", :width => "400") %></p>
+<p class="txt"><%= image_tag(@user.picture, :class => "img-rounded", :width => "400") %></p>
 
-<p>Profile created <%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %> ago</p>
+<p class="txt"> Profile created <%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %> ago</p>
+</div>
 
 <%= form_for Post.new do |f| %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, :class => 'postbox' %>
   <%= f.submit %>
 <% end %>
 
 <% @user.posts.reverse.each do |p| %>
 
-  <p><%= p.user.name %></p>
-  <p><%= p.content %></p>
-  <p><%= image_tag p.user.picture, :class => "img-circle", :width => "45", :height => "45" %></p>
-  <p><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
+  <p class="txt"><%= p.user.name %></p>
+  <p class="txt"><%= p.content %></p>
+  <p class="txt"><%= image_tag p.user.picture, :class => "img-circle", :width => "45", :height => "45" %></p>
+  <p class="txt"><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
   <ul>
   <% p.comments.reverse_each do |c| %>
   <li>

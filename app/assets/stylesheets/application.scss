@@ -5,3 +5,51 @@ nav img.logo {
   width: 125px;
   height: 42px;
 }
+
+body {
+  background-color: #dfdfdf;
+}
+
+.img-rounded {
+  border-radius: 6px;
+}
+
+.navbar-header {
+  background-color: #01579B;
+}
+
+.container-fluid {
+ background-color: #01579B; 
+}
+
+.userinfo {
+ background-color: #5ba3f4;
+ border: 3px solid;
+ border-color: white;
+ border-radius: 3px;
+ color: #000000;
+ font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+ font-size: 20px;
+ display: inline-block;
+ text-align: center;
+ margin-left: 17px
+}
+
+.txt {
+  color: white;
+}
+
+input[type=submit] {
+    padding: 5px 15px; 
+    background: #ccc; 
+    border: 0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+.postbox {
+    margin-left: 17px;
+    margin-top: 10px;
+    position: relative;
+}
