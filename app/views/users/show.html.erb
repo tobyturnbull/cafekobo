@@ -10,6 +10,7 @@
 <%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %>
 
 <%= form_for Post.new do |f| %>
+  <%= image_tag(@user.picture) %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
@@ -18,18 +19,20 @@
 
   <p><%= p.user.name %></p>
   <p><%= p.content %></p>
+  <p><%= image_tag p.user.picture %></p>
   <p><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
   <ul>
   <% p.comments.reverse_each do |c| %>
   <li>
     <% if c.user %>
+      <%= image_tag c.user.picture %>
       <%= c.user.name %>
     <% end %>
     <%= c.content %>
-    <%= timeago_tag c.created_at, :nojs => true, :limit => 1.days.ago %> ago
-
+    <%= timeago_tag c.created_at, :nojs => true, :limit => 7.days.ago %> ago
   </li>
   <% end %>
+  
   </ul>
   <p>
     <%= form_for [p, Comment.new] do |f| %>
