@@ -1,7 +1,13 @@
+<div class="postshow">
 <h1>Cafe Kobo Users</h1>
+</div>
 
+<div class="postbox">
 <% @users.each do |user| %>
   <p>
     <%= link_to( "#{ user.name }", user_path( user ) ) %>
+    <%= image_tag user.picture, :class => "img-circle", :width => "45", :height => "45" %>
   </p>
 <% end %>
+</div>
+

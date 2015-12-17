@@ -1,4 +1,6 @@
+<div class="usernametitle">
 <h1><%= "#{ @user.name }" "'s Page" %></h1>
+</div>
 
 <div class = "userinfo">
 <p class="txt"><b>Name:</b> <%= "#{ @user.name }" %></p>
@@ -15,27 +17,30 @@
 
 <% @user.posts.reverse.each do |p| %>
 
-  <p class="txt"><%= p.user.name %></p>
-  <p class="txt"><%= p.content %></p>
-  <p class="txt"><%= image_tag p.user.picture, :class => "img-circle", :width => "45", :height => "45" %></p>
-  <p class="txt"><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
+  <div class="postshow">
+  <p><%= p.user.name %></p>
+  <p><%= p.content %></p>
+  <p><%= image_tag p.user.picture, :class => "postcontentpic", :width => "45", :height => "45" %></p>
+  <p><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
   <ul>
+  </div>
   <% p.comments.reverse_each do |c| %>
   <li>
+    <div class="commentsbox">
     <% if c.user %>
-      <%= image_tag c.user.picture, :class => "img-circle", :width => "45", :height => "45" %>
-      <%= c.user.name %>
+      <%= image_tag c.user.picture, :class => "img-circle", :width => "45", :height => "45" %> 
+      <%= c.user.name %> |
     <% end %>
-    <%= c.content %>
+    <%= c.content %> |
     <%= timeago_tag c.created_at, :nojs => true, :limit => 7.days.ago %> ago
+  </div>
   </li>
   <% end %>
   
   </ul>
   <p>
     <%= form_for [p, Comment.new] do |f| %>
-      <%= f.label :content, 'Comment' %>
-      <%= f.text_area :content %>
+      <%= f.text_area :content, :class => "commentcontent" %>
       <%= f.submit %>
     <% end %>
   </p>

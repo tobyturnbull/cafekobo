@@ -8,16 +8,18 @@
   </ol>
 <% end %>
 
+<div class="signupdiv">
 <%= form_for @user, :html => { :multipart => true } do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, :required => true %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :required => true %>
-  <%= label_tag "Profile Picture" %>
-  <%= cl_image_upload_tag :picture %>
-  <%= f.label :password %>
-  <%= f.password_field :password, :required => true %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :required => true %>
-  <%= f.submit %>
+  <li><%= f.label :email %></li>
+  <li><%= f.email_field :email, :required => true %></li>
+  <li><%= f.label :name %></li>
+  <li><%= f.text_field :name, :required => true %></li>
+  <li><%= label_tag "Profile Picture" %></li>
+  <li><%= cl_image_upload_tag :picture %></li>
+  <li><%= f.label :password %></li>
+  <li><%= f.password_field :password, :required => true %></li>
+  <li><%= f.label :password_confirmation %></li>
+  <li><%= f.password_field :password_confirmation, :required => true %></li>
+  <li><%= f.submit :class => "signupbutton" %></li>
+</div>
 <% end %>
