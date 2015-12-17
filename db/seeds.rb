@@ -2,9 +2,9 @@ User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
-u1 = User.create( :name => "AA", :email => "a@a.com", :password => "a", :password_confirmation => 'a' )
-u2 = User.create( :name => "BB", :email => "b@b.com", :password => "b", :password_confirmation => 'b' )
-u2 = User.create( :name => "CC", :email => "c@c.com", :password => "c", :password_confirmation => 'c' )
+u1 = User.create( :name => "Wataru", :email => "a@a.com", :password => "a", :password_confirmation => 'a' )
+u2 = User.create( :name => "Toby", :email => "b@b.com", :password => "b", :password_confirmation => 'b' )
+u2 = User.create( :name => "Joel", :email => "c@c.com", :password => "c", :password_confirmation => 'c' )
 
 p1 = Post.create( :content => "Here is a sample post", :user_id => 1)
 p2 = Post.create( :content => "Here is a second sample post", :user_id => 2)

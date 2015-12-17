@@ -1,16 +1,12 @@
-<h1>/users/:id - This should show all of the details of a particular user</h1>
+<h1><%= "#{ @user.name }" "'s Page" %></h1>
 
-<p><b>Full name:</b> <%= "#{ @user.name }" %></p>
+<p><b>Name:</b> <%= "#{ @user.name }" %></p>
 
-<p><b>Email:</b> <%= @user.email %></p>
+<p><%= image_tag(@user.picture, :class => "img-rounded", :width => "400") %></p>
 
-<p><b>Picture:</b> <%= image_tag(@user.picture) %></p>
-
-<p><b>Created At:</b> <%= @user.created_at.strftime( '%A, %B %e, %Y' ) %></p>
-<%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %>
+<p>Profile created <%= timeago_tag Time.zone.now, :nojs => true, :limit => 30.days.ago %> ago</p>
 
 <%= form_for Post.new do |f| %>
-  <%= image_tag(@user.picture) %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
@@ -19,13 +15,13 @@
 
   <p><%= p.user.name %></p>
   <p><%= p.content %></p>
-  <p><%= image_tag p.user.picture %></p>
+  <p><%= image_tag p.user.picture, :class => "img-circle", :width => "45", :height => "45" %></p>
   <p><%= timeago_tag p.created_at, :nojs => true, :limit => 30.days.ago %> ago</p>
   <ul>
   <% p.comments.reverse_each do |c| %>
   <li>
     <% if c.user %>
-      <%= image_tag c.user.picture %>
+      <%= image_tag c.user.picture, :class => "img-circle", :width => "45", :height => "45" %>
       <%= c.user.name %>
     <% end %>
     <%= c.content %>
